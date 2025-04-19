@@ -20,5 +20,5 @@ services:
 
 networks:
   orgflow_network:
-    name: orgflow_network
+    name: orgflow_project_network
     driver: bridge
