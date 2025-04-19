@@ -1,7 +1,7 @@
-# OrgFlow 
+# OrgFlow 员工管理系统
 
 <div align="center">
-  <img src="./docs/logo.png" alt="OrgFlow Logo" style="width: 400px; max-width: 40%; height: auto; margin: 20px 0;">
+  <img src="./docs/logo.png" alt="OrgFlow Logo" style="width: 200px; max-width: 40%; height: auto; margin: 20px 0;">
 </div>
 
 OrgFlow 是一个基于现代 Web 技术的企业级员工管理系统，提供完整的部门架构管理和员工信息维护解决方案。系统采用前后端分离架构，旨在帮助中小型企业高效管理组织架构、人员信息和权限分配，实现人力资源数字化转型。该系统具备灵活的部门层级管理、丰富的员工档案维护、完善的权限控制以及直观的数据可视化功能，能有效提升HR团队工作效率，助力管理层进行数据驱动决策。OrgFlow支持多种部署方式，既可本地部署也可云端托管，满足不同规模企业的实际需求。
