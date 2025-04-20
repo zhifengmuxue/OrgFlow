@@ -1,6 +1,7 @@
 services:
   mysql:
     image: mysql:8.0
+    platform: linux/arm64/v8  
     container_name: mysql_container
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -21,4 +22,5 @@ services:
 networks:
   orgflow_network:
     name: orgflow_project_network
+    external: true 
     driver: bridge
