@@ -1,5 +1,8 @@
 mysql-docker/data
+redis-docker/data
 target/
+**/application-dev.yml
+.env
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

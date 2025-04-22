@@ -1,4 +1,4 @@
-package entity;
+package top.zfmx.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
- * 角色
+ * 权限
  *
  * @author lima
  * @version 0.0.1
@@ -15,10 +15,11 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
-    private Long roleId;
-    private String roleName;
-    private String description;
+public class Permission {
+    private Long permissionId;
+    private String permissionCode;
+    private String permissionName;
+    private Integer sortOrder;
     private Integer status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

@@ -15,7 +15,8 @@ OrgFlow 是一个基于现代 Web 技术的企业级员工管理系统，提供�
   - RabbitMQ (业务异步处理)
   - Kafka  (实时事件通知)
 - **数据库**: MySQL  
-- **安全框架**: Spring Security + JWT
+- **安全框架**: sa-token
+- **数据持久化**: MyBatisPlus
 
 ### 前端技术栈
 - **框架**: Vue.js  

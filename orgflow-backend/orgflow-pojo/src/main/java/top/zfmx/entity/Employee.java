@@ -1,4 +1,4 @@
-package entity;
+package top.zfmx.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

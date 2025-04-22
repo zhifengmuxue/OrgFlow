@@ -1,0 +1,8 @@
+mysql:
+  username: xxx
+  password: xxx
+  url: jdbc:mysql://localhost:3306/xxx?useUnicode=true&characterEncoding=utf8&useSSL=false
+redis:
+  host: xxx 
+  port: xxxx
+  password: xxx
