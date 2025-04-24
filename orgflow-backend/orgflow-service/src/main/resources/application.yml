@@ -24,3 +24,6 @@ spring:
           max-wait: -1ms
           max-idle: 8
           min-idle: 0
+sa-token:
+  is-share: true
+  timeout: 2592000
