@@ -27,6 +27,8 @@
         <redis.pool>2.12.1</redis.pool>
         <mybatis.plus>3.5.7</mybatis.plus>
         <mybatis.page>3.5.9</mybatis.page>
+        <hutool>2.16.2</hutool>
+        <bcpkix>1.70</bcpkix>
     </properties>
 
     <dependencyManagement>
@@ -52,6 +54,11 @@
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${spring.boot}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot}</version>
+            </dependency>
 
             <!-- 通用工具 -->
             <dependency>
@@ -74,6 +81,11 @@
                 <artifactId>jaxb-impl</artifactId>
                 <version>4.0.3</version>
                 <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.xiaoleilu</groupId>
+                <artifactId>hutool</artifactId>
+                <version>${hutool}</version>
             </dependency>
 
             <!-- 鉴权 -->

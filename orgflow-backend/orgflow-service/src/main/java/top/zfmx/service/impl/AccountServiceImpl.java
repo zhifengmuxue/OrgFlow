@@ -1,5 +1,6 @@
 package top.zfmx.service.impl;
 
+import cn.dev33.satoken.secure.SaSecureUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,8 @@ public class AccountServiceImpl
                 .oneOpt()
                 .orElseThrow(() -> new AuthException("用户名或密码错误"));
 
-        // TODO 加密
-        if (!password.equals(account.getPassword())) {
+        // 加密
+        if (!SaSecureUtil.md5(password).equals(account.getPassword())) {
             throw new AuthException("用户名或密码错误");
         }
 

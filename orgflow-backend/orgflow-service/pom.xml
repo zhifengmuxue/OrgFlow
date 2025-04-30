@@ -87,6 +87,14 @@
             <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xiaoleilu</groupId>
+            <artifactId>hutool</artifactId>
+        </dependency>
+        <dependency>
             <groupId>top.zfmx</groupId>
             <artifactId>orgflow-pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
