@@ -95,7 +95,8 @@ const handleLogin = async () => {
         try {
             const response = await axios.post('/api/auth/login', {
                 username: loginForm.username,
-                password: loginForm.password
+                password: loginForm.password,
+                rememberMe: loginForm.remember
             })
 
             const { code, message: msg, data } = response.data
@@ -107,12 +108,24 @@ const handleLogin = async () => {
                 // 如果选择了"记住我"，可以设置token的保存期限
                 if (loginForm.remember) {
                     localStorage.setItem('remember', 'true')
+                }else{
+                    localStorage.removeItem('remember')
+                }
+                
+                if (loginForm.remember) {
+                    // 长期有效 - 使用localStorage（持久化存储）
+                    localStorage.setItem('satoken', data)
+                    localStorage.removeItem('satoken_session')
+                } else {
+                    // 临时有效 - 使用sessionStorage（会话级存储）
+                    sessionStorage.setItem('satoken_session', data)
+                    localStorage.removeItem('satoken')
                 }
 
                 message.success(msg || '登录成功')
 
                 // 获取重定向地址，如果没有则默认到首页
-                const redirectPath = route.query.redirect?.toString() || '/home'
+                const redirectPath = route.query.redirect?.toString() || '/'
                 router.push(redirectPath)
             } else {
                 // 处理各种错误情况

@@ -29,22 +29,19 @@ public class AuthController {
     @PostMapping("/login")
     @Operation(description = "登录接口")
     public Result<String> doLogin(@Validated @RequestBody LoginDTO loginDTO) {
-        log.info("用户登录：{}",loginDTO.getUsername());
+        log.info("用户登录：{}, 是否记录:{}",loginDTO.getUsername(),loginDTO.getRememberMe());
         Long userId = accountService.login(loginDTO);
-        StpUtil.login(userId);
-        String tokenValue = StpUtil.getTokenValue();
-        return Result.ok("登录成功",tokenValue);
+        if (userId != null) {
+            StpUtil.login(userId, loginDTO.getRememberMe());
+        }
+        return Result.ok("登录成功",StpUtil.getTokenValue());
     }
 
     @PostMapping("/logout")
     @Operation(description = "退出接口")
     public Result<String> doLogout(){
-        if(StpUtil.isLogin()){
-            StpUtil.logout();
-            log.info("用户[{}]已注销", StpUtil.getLoginId());
-        }
+        log.info("是否登录：{}", StpUtil.isLogin());
+        StpUtil.logout();
         return Result.ok("注销成功");
     }
-
-
 }

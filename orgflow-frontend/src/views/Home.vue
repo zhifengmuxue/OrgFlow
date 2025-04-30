@@ -38,7 +38,8 @@
         <a-layout>
             <!-- 左侧菜单 -->
             <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible width="256" class="sider">
-                <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" mode="inline" theme="light" @click="handleMenuClick">
+                <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" mode="inline" theme="light"
+                    @click="handleMenuClick">
                     <a-menu-item key="dashboard">
                         <template #icon>
                             <DashboardOutlined />
@@ -89,6 +90,7 @@ import {
     RiseOutlined,
     BellOutlined
 } from '@ant-design/icons-vue'
+import axios from 'axios'
 
 const router = useRouter()
 const route = useRoute()
@@ -116,7 +118,7 @@ onMounted(() => {
         router.push({ name: 'dashboard' })
         return
     }
-    
+
     // 根据当前路由设置选中的菜单项
     const pathKey = route.name as string
     if (pathKey) {
@@ -152,14 +154,19 @@ const handleMenuClick = ({ key }: { key: string }) => {
 // 退出登录
 const handleLogout = async () => {
     try {
-        // 清除本地存储的token和用户信息
+        // 调用登出API
+        await axios.post('/api/auth/logout')
+
+        // 清除所有token存储
         localStorage.removeItem('token')
         localStorage.removeItem('remember')
-
+        localStorage.removeItem('satoken')
+        sessionStorage.removeItem('satoken_session')
+        
         message.success('已退出登录')
 
         // 跳转到登录页
-        router.push('/login')
+        window.location.href = '/login'
     } catch (error) {
         console.error('退出登录失败:', error)
         message.error('退出失败，请重试')

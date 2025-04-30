@@ -27,3 +27,5 @@ spring:
 sa-token:
   is-share: true
   timeout: 2592000
+  auto-renew: true
+  active-timeout: -1
