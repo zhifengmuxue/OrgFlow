@@ -10,6 +10,5 @@ import top.zfmx.entity.Account;
  **/
 public interface AccountService
         extends IService<Account> {
-
     Long login(LoginDTO loginDTO);
 }

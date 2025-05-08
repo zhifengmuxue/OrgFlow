@@ -27,7 +27,7 @@ public class AuthController {
     private AccountService accountService;
 
     @PostMapping("/login")
-    @Operation(description = "登录接口")
+    @Operation(summary = "登录接口")
     public Result<String> doLogin(@Validated @RequestBody LoginDTO loginDTO) {
         log.info("用户登录：{}, 是否记录:{}",loginDTO.getUsername(),loginDTO.getRememberMe());
         Long userId = accountService.login(loginDTO);
@@ -38,7 +38,7 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
-    @Operation(description = "退出接口")
+    @Operation(summary = "退出接口")
     public Result<String> doLogout(){
         log.info("是否登录：{}", StpUtil.isLogin());
         StpUtil.logout();
